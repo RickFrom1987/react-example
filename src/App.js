@@ -6,6 +6,7 @@ import {
 } from './actions'
 
 import Menu from './Menu'
+import Image from './Image'
 import './App.css';
 
 export class App extends Component {
@@ -15,13 +16,12 @@ export class App extends Component {
   }
   render() {
     const { images } = this.props
-    const allImages = []
     return (
       <div className="App">
         <Menu/>
-        <div className="body">
+        <div className="App-body">
           {images.isLoading && <span>Loading...</span>}
-          {allImages}
+          <Image html={images.data}></Image>
         </div>
       </div>
     );

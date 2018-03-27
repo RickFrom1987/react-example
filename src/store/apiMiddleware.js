@@ -12,7 +12,7 @@ function createMiddleware(extraArgument) {
         return fetch().then((response) => {
           return next({ 
             type: c.RECEIVE_IMAGES,
-            images: response.images
+            images: response.data
           })
         }).catch(e => {
           return next({ type: c.ERROR_IMAGES , e })
