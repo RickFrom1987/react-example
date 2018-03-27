@@ -25,21 +25,29 @@ export class App extends Component {
       image_id: images.data.id,
       score: (data === 'left') ? 1 : 10
     }
-    return dispatch(postVote(vote))
+    return dispatch(postVote(vote)).then((response) => {
+      dispatch(requestImages())
+      return
+    })
   }
   render() {
     const { images } = this.props
+    let imageHtml
+    if(images.isLoading) {
+      imageHtml = <div className="loader"></div>
+    } else {
+      imageHtml = <SwipeableImage
+        id={images.data.id}
+        src={images.data.url}
+        href={images.data.source_url}
+        onSwiped={this.onSwiped}>
+      </SwipeableImage>
+    }
     return (
       <div className="App">
         <Menu/>
         <div className="App-body">
-          {images.isLoading && <span>Loading...</span>}
-          <SwipeableImage
-            id={images.data.id}
-            src={images.data.url}
-            href={images.data.source_url}
-            onSwiped={this.onSwiped}>
-          </SwipeableImage>
+          { imageHtml }
         </div>
       </div>
     );

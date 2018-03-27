@@ -11,6 +11,7 @@ function createMiddleware(extraArgument) {
     }
     switch(action.type) {
       case c.REQUEST_IMAGES:
+        next({ type: c.REQUEST_IMAGES })
         return fetch().then((response) => {
           convert.xmlDataToJSON(response.data).then((data) => {
             let image = {}
@@ -30,7 +31,6 @@ function createMiddleware(extraArgument) {
         })
       case c.POST_VOTE:
         return postVote(action.vote).then((response) => {
-          console.log("POST_VOTE response", response)
           return next({ 
             type: c.SUCCESS_POST_VOTE,
           })

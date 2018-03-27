@@ -1,31 +1,42 @@
 import React, { Component } from 'react'
 import Swipeable from 'react-swipeable'
-
 import './SwipeableImage.css';
+
+const DEFAULT_STATE = {
+  direction: null
+}
+
+const WIDTH = window.innerWidth * 1.5
+const imageTransitionStyles = {
+  left: {
+    transform: `translateX(-${WIDTH}px)`,
+    opacity: 0
+  },
+  right: {
+    transform: `translateX(${WIDTH}px)`,
+    opacity: 0
+  }
+}
 
 export class SwipeableImage extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      direction: null
-    }
+    this.state = DEFAULT_STATE
     this.swiping = this.swiping.bind(this)
     this.swipingLeft = this.swipingLeft.bind(this)
     this.swipingRight = this.swipingRight.bind(this)
     this.swiped = this.swiped.bind(this)
   }
   swiping() {
-    this.setState({
-      direction: null
-    })
+    this.setState(DEFAULT_STATE)
   }
-  swipingLeft() {
+  swipingLeft(e, absX) {
     this.setState({
       direction: 'left'
     })
   }
   swipingRight() {
-     this.setState({
+    this.setState({
       direction: 'right'
     })
   }
@@ -34,7 +45,8 @@ export class SwipeableImage extends Component {
     return onSwiped(this.state.direction)
   }
   render() {
-    const { id, src, href } = this.props
+    const { src, href } = this.props
+    let imageStyle = imageTransitionStyles[this.state.direction]
     return (
       <Swipeable
         className="Swipeable-image"
@@ -42,11 +54,9 @@ export class SwipeableImage extends Component {
         onSwipingLeft={this.swipingLeft}
         onSwipingRight={this.swipingRight}
         onSwiped={this.swiped}>
-        <a href={href}>
-          <img src={src} alt={id}/>
-        </a>
+        <img src={src} style={imageStyle} alt={href}/>
       </Swipeable>
-    );
+    )
   }
 }
 
