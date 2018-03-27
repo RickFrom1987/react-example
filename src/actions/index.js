@@ -12,8 +12,13 @@ function errorImages(msg) {
   return { type: c.ERROR_IMAGES, msg };
 }
 
+function postVote(vote) {
+  return { type: c.POST_VOTE, vote };
+}
+
 export {
   requestImages,
   receiveImages,
-  errorImages
+  errorImages,
+  postVote
 }
