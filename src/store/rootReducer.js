@@ -1,5 +1,4 @@
 // Reducer handles action types and helps extend app state
-
 import * as c from '../actions/constants'
 
 function images(state, action) {

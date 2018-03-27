@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Swipeable from 'react-swipeable'
-import './SwipeableImage.css';
+import PropTypes from 'prop-types'
+
+import './SwipeableImage.css'
 
 const DEFAULT_STATE = {
   direction: null
@@ -60,8 +62,18 @@ export class SwipeableImage extends Component {
   }
 }
 
-SwipeableImage.propTypes = {}
+SwipeableImage.propTypes = {
+  id: PropTypes.string,
+  src: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  onSwiped: PropTypes.func
+}
 
-SwipeableImage.defaultProps = {}
+SwipeableImage.defaultProps = {
+  id: null,
+  src: '',
+  href: '',
+  onSwiped: () => {}
+}
 
 export default SwipeableImage

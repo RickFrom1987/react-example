@@ -11,8 +11,8 @@ A simple cat react app.
 In order to run this demo:
 
 1. make sure cors is enabled locally so we can hit the public free api, via a chrome plugin or chrome dev tools.
-2. So far, swiping only tested via mobile view with inspector.
 
+2. So far, swiping only tested via mobile view with inspector.
 
 We are using catapi (http://thecatapi.com/)
 
@@ -28,6 +28,8 @@ We are using catapi (http://thecatapi.com/)
 
 - Pagination/caching, right now we just hit the api one at a time, we can easily grab many more at a time
 
+- Better image loading detection
+
 - Suport desktop mode, either show buttons or get swiping to work on desktop
 
 - Better loading animations/transitionsd
@@ -36,7 +38,11 @@ We are using catapi (http://thecatapi.com/)
 
 - Better style overall
 
-- More unit/integration tests
+- Loading screen/splash
+
+- More unit/integration tests (cypress?)
+
+- Better error handling
 
 ## Setup:
 
