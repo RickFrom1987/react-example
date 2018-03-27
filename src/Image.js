@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Swipeable from 'react-swipeable'
+
 import './Image.css';
 
 export class Image extends Component {
@@ -6,9 +8,25 @@ export class Image extends Component {
     const { html } = this.props
     return { __html: html }
   }
+  swipingLeft() {
+    console.log("left")
+  }
+  swipingRight() {
+    console.log("right")
+  }
+  swiped() {
+    console.log("done swiping")
+  }
   render() {
     return (
-      <div class="Image" dangerouslySetInnerHTML={this.getHtml()}></div>
+      <Swipeable
+        className="Image"
+        onSwiping={this.swiping}
+        onSwipingLeft={this.swipingLeft}
+        onSwipingRight={this.swipingLeft}
+        onSwiped={this.swiped}>
+        <div dangerouslySetInnerHTML={this.getHtml()}></div>
+      </Swipeable>
     );
   }
 }

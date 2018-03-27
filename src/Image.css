@@ -1,5 +1,6 @@
 .Image {
   max-width: 300px;
+  border: 4px solid pink;
 }
 .Image img {
   width: 100%;
