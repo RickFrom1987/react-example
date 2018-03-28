@@ -16,7 +16,7 @@ In order to run this demo:
 
 We are using catapi (http://thecatapi.com/)
 
-![example](http://example.com)
+![example](https://github.com/RickFrom1987/react-example/blob/master/example.gif)
 
 ## Decisions:
 
