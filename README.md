@@ -16,7 +16,6 @@ In order to run this demo:
 
 We are using catapi (http://thecatapi.com/)
 
-
 ![example](http://example.com)
 
 ## Decisions:
